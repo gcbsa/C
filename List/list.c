@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "list.h"
 
-//Tyoe definition
+//Type definition
 typedef struct list_node List_node;
 //
 

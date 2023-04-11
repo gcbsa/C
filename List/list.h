@@ -1,3 +1,4 @@
+//Error code definitions
 #define SUCCESS 0;
 #define FAIL -1;
 #define INVALID_POINTER -2;
