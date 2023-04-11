@@ -61,16 +61,16 @@ int insert(List * list, int position, int element){
   List_node * new_node = (List_node *)malloc(sizeof(List_node));
   if(new_node == NULL) return OUT_OF_MEMORY;
   new_node->element = element;
-  
-  List_node ** current_node = &(list->head);
+
+  List_node ** current_node = &list->head;
   for(int i = 1; i < position; i++)
-    *current_node = (*current_node)->next;
-  
-  new_node->next = (*current_node)->next;
+    current_node = &(*current_node)->next;
+
+  new_node->next = *current_node;
   *current_node = new_node;
-  
+
   list->size++;
-  
+
   return SUCCESS;
 }
 
