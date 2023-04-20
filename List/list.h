@@ -1,3 +1,6 @@
+#ifndef LIST_H_INCLUDED
+#define LIST_H_INCLUDED
+
 //Error code definitions
 #define SUCCESS 0;
 #define FAIL -1;
@@ -9,7 +12,7 @@ typedef struct list List;
 
 //Base operations
 List * create();
-int destroy(List * list);
+int destroy(List ** list);
 int empty(List * list);
 
 //Handle operations
@@ -28,3 +31,5 @@ int max(List * list, int * element);
 
 //View operations
 int print(List * list);
+
+#endif
