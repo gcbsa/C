@@ -171,7 +171,7 @@ int min(List *list, int * element){
 	return SUCCESS;
 }
 
-int max(List *list,  current_node = liint * element){
+int max(List *list,  int * element){
 	if(list == NULL) return INVALID_POINTER;
 
 	*element = list->head->element;
@@ -185,7 +185,7 @@ int max(List *list,  current_node = liint * element){
 
 //View operations
 int print(List * list){
-	if(list == NULL) return INVALID_ current_node = liPOINTER;
+	if(list == NULL) return INVALID_POINTER;
 
 	for(List_node * current_node = list->head; current_node != NULL; current_node = current_node->next)
 		printf("[ %d ]  ->  ", current_node->element);
