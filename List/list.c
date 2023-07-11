@@ -124,7 +124,7 @@ int reverse(List * list){
 }
 //
 
-//Fetch Operations
+//Fetch operations
 int retrieve(List * list, int position, int * element){
 	if(list == NULL) return INVALID_POINTER;
 
@@ -171,7 +171,7 @@ int min(List *list, int * element){
 	return SUCCESS;
 }
 
-int max(List *list, int * element){
+int max(List *list,  current_node = liint * element){
 	if(list == NULL) return INVALID_POINTER;
 
 	*element = list->head->element;
@@ -185,7 +185,7 @@ int max(List *list, int * element){
 
 //View operations
 int print(List * list){
-	if(list == NULL) return INVALID_POINTER;
+	if(list == NULL) return INVALID_ current_node = liPOINTER;
 
 	for(List_node * current_node = list->head; current_node != NULL; current_node = current_node->next)
 		printf("[ %d ]  ->  ", current_node->element);
