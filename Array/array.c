@@ -1,4 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "array.h"
+
+//Base operations
 
 //Handle operations
 void swap(int array[], int index_a, int index_b){
@@ -20,7 +25,7 @@ void fill(int array[], int size) {
 void shuffle(int array[], int size){
     srand(time(NULL));
     for(int i = 0; i < size; i++)
-        swap(array, i, rand() % size)
+        swap(array, i, rand() % size);
   
     return;
 }
@@ -41,12 +46,12 @@ int binary_search(int array[], int high, int key){
         
     }while(low <= high);
 
-    return -1;
+    return FAIL;
 }
 
 int recursive_binary_search(int array[], int low, int high, int key){
     if(low > high)
-        return -1;
+        return FAIL;
 
     int mid = (high+low)/2;
     if(key < array[mid])
@@ -60,8 +65,8 @@ int recursive_binary_search(int array[], int low, int high, int key){
 //View operations
 void print(int array[], int size){
     for(int i = 0; i < size - 1; i++)
-        printf("[%s]  ", array[i]);
-    printf("[%s]\n", array[size-1]);
+        printf("[%d] ", array[i]);
+    printf("[%d]\n", array[size-1]);
 
     return;
 }

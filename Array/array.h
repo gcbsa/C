@@ -1,7 +1,13 @@
 #ifndef ARRAY_H_INCLUDED
 #define ARRAY_H_INCLUDED
 
-//View operations
+//Error code definitions
+#define SUCCESS 0;
+#define FAIL -1;
+
+//Base operatins
+
+//Handle operations
 void swap(int array[], int index_a, int index_b);
 void fill(int array[], int size);
 void shuffle(int array[], int size);
