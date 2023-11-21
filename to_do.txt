@@ -1,0 +1,5 @@
+1. Improve array code
+2. Improve string code
+3. Test array code
+4. Teste string code
+5. Include sort code
