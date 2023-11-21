@@ -4,7 +4,6 @@
 
 //Type definition
 typedef struct stack_node Stack_node;
-//
 
 //Structure definition
 struct stack{
@@ -16,8 +15,6 @@ struct stack_node{
 	int element;
 	Stack_node * next;
 };
-//
-
 
 //Base operations
 Stack * create(){
@@ -51,7 +48,6 @@ int empty(Stack * stack){
 
 	return SUCCESS;
 }
-//
 
 //Handle operations
 int push(Stack * stack, int element){
@@ -79,7 +75,6 @@ int pop(Stack * stack){
 
 	return SUCCESS;
 }
-//
 
 //Fetch operations
 int top(Stack * stack, int * element){
@@ -97,7 +92,6 @@ int len(Stack * stack){
 
 	return stack->size;
 }
-//
 
 //View operations
 int print(Stack * stack){
@@ -109,4 +103,3 @@ int print(Stack * stack){
 
 	return SUCCESS;
 }
-//

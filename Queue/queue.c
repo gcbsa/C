@@ -4,7 +4,6 @@
 
 //Type definition
 typedef struct queue_node Queue_node;
-//
 
 //Structure definition
 struct queue{
@@ -16,7 +15,6 @@ struct queue_node{
 	int element;
 	Queue_node * next;
 };
-//
 
 //Base operations
 Queue * create(){
@@ -50,7 +48,6 @@ int empty(Queue * queue){
 
 	return SUCCESS;
 }
-//
 
 //Handle operations
 int queue(Queue * queue, int element){
@@ -85,7 +82,6 @@ int dequeue(Queue * queue){
 
 	return SUCCESS;
 }
-//
 
 //Fetch operations
 int first(Queue * queue, int * element){
@@ -103,7 +99,6 @@ int size(Queue * queue){
 
 	return queue->size;
 }
-//
 
 //View operations
 int print(Queue * queue){
@@ -115,4 +110,3 @@ int print(Queue * queue){
 
 	return SUCCESS;
 }
-//

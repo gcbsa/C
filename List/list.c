@@ -4,7 +4,6 @@
 
 //Type definition
 typedef struct list_node List_node;
-//
 
 //Structure definition
 struct list{
@@ -16,7 +15,6 @@ struct list_node{
 	int element;
 	List_node * next;
 };
-//
 
 //Base operations
 List * create(){
@@ -50,7 +48,6 @@ int empty(List * list){
 
 	return SUCCESS;
 }
-//
 
 //Handle operations
 int insert(List * list, int position, int element){
@@ -122,7 +119,6 @@ int reverse(List * list){
 
 	return SUCCESS;
 }
-//
 
 //Fetch operations
 int retrieve(List * list, int position, int * element){
@@ -181,7 +177,6 @@ int max(List *list,  int * element){
 
 	return SUCCESS;
 }
-//
 
 //View operations
 int print(List * list){
@@ -193,4 +188,3 @@ int print(List * list){
 
 	return SUCCESS;
 }
-//
