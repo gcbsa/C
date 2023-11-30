@@ -20,7 +20,6 @@ int insert(List * list, int position, int element);
 int alter(List * list, int position, int element);
 int exclude(List * list, int position);
 int reverse(List * list);
-int sort(List * list); //todo
 
 //Fetch operations
 int retrieve(List * list, int position, int * element);

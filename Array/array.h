@@ -4,19 +4,32 @@
 //Error code definitions
 #define SUCCESS 0;
 #define FAIL -1;
+#define INVALID_POINTER -2;
+#define OUT_OF_MEMORY -3;
+
+//Type definition
+typedef struct array Array;
 
 //Base operatins
+Array * create(int space);
+int destroy(Array ** array);
+int resize(Array * array, int new_space);
 
 //Handle operations
-void swap(int array[], int index_a, int index_b);
-void fill(int array[], int size);
-void shuffle(int array[], int size);
+int assign(Array * array, int index, int value);
+int swap(Array * array, int index_a, int index_b);
+int fill(Array * array, int max_value);
+int shuffle(Array * array);
+int reverse(Array * array);
 
 //Fetch operations
-int binary_search(int array[], int high, int key);
-int recursive_binary_search(int array[], int low, int high, int key);
+int retrieve(Array * array, int index, int * value);
+int search(Array * array, int * index, int value);
+int len(Array * array);
+int min(Array * array, int * value);
+int max(Array * array, int * value);
 
 //View operations
-void print(int array[], int size);
+int print(Array * array);
 
 #endif

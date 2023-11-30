@@ -3,72 +3,159 @@
 #include <time.h>
 #include "array.h"
 
+
+//Structure definition
+struct array{
+	int size;
+	int * data;
+};
+
 //Base operations
+Array * create(int space){
+	Array * new_array = (Array *)malloc(sizeof(Array));
 
-//Handle operations
-void swap(int array[], int index_a, int index_b){
-    int temp = array[index_a];
-    array[index_a] = array[index_b];
-    array[index_b] = temp;
+	if(new_array != NULL){
+		new_array->data = (int *)malloc(space*sizeof(int));
+        new_array->size = space;
+	}
 
-    return;
+	return new_array;
 }
 
-void fill(int array[], int size) {
-    srand(time(NULL));
-    for (int i = 0; i < size; i++)
-        array[i] = rand() % 1000;
-  
-    return;
+int destroy(Array ** array){
+	if(*array == NULL) return INVALID_POINTER;
+
+	free((*array)->data);
+	free(*array);
+	*array = NULL;
+	
+	return SUCCESS;
 }
 
-void shuffle(int array[], int size){
+int resize(Array * array, int new_space){
+    if(array == NULL) return INVALID_POINTER;
+
+    int * temp = (int *)realloc(array->data, new_space * sizeof(int));
+    if (temp != NULL)
+        array->data = temp;
+    else return OUT_OF_MEMORY;
+
+    array->size = new_space;
+
+    return SUCCESS;
+}
+
+//Handle operations)
+int assign(Array * array, int index, int value){
+    if(array == NULL || array->data == NULL) return INVALID_POINTER;
+    
+    if(index < 0 || index >= array->size) return FAIL;
+
+    array->data[index] = value;
+
+    return SUCCESS;
+}
+
+int swap(Array * array, int index_a, int index_b){
+    if(array == NULL || array->data == NULL) return INVALID_POINTER;
+
+    if(index_a < 0 || index_a >= array->size || index_b < 0 || index_b >= array->size || index_a == index_b) return FAIL;
+
+    int temp = array->data[index_a];
+    array->data[index_a] = array->data[index_b];
+    array->data[index_b] = temp;
+
+    return SUCCESS;
+}
+
+int fill(Array * array, int max_value) {
+    if(array == NULL || array->data == NULL) return INVALID_POINTER;
+
     srand(time(NULL));
-    for(int i = 0; i < size; i++)
-        swap(array, i, rand() % size);
+    for (int i = 0; i < array->size; i++)
+        array->data[i] = rand() % max_value;
   
-    return;
+    return SUCCESS;
+}
+
+int shuffle(Array * array){
+    if(array == NULL || array->data == NULL) return INVALID_POINTER;
+
+    srand(time(NULL));
+    for(int i = 0; i < array->size; i++)
+        swap(array, i, rand() % array->size);
+  
+    return SUCCESS;
+}
+
+int reverse(Array * array){
+	if(array == NULL || array->data == NULL) return INVALID_POINTER;
+
+	if(array->size < 2) return FAIL;
+
+	for(int i = 0; (array->size/2)-i; i++)
+		swap(array, i, array->size-1-i);
+	
+	return SUCCESS;
 }
 
 //Fetch operations
-int binary_search(int array[], int high, int key){
-    int low = 0; 
-    
-    do{
-        int mid = (high+low)/2;
-        
-        if(key < array[mid])
-            high = mid-1;
-        else if (key > array[mid])
-            low = mid+1;
-        else
-            return mid;
-        
-    }while(low <= high);
+int retrieve(Array * array, int index, int * value){
+    if(array == NULL || array->data == NULL) return INVALID_POINTER;
 
+    if(index < 0 || index >= array->size) return FAIL;
+
+    *value = array->data[index];
+
+    return SUCCESS;
+}
+
+int search(Array * array, int * index, int value){
+    if(array == NULL || array->data == NULL) return INVALID_POINTER;
+
+    for(*index = 0; *index < array->size; (*index)++)
+        if(array->data[*index] == value)
+            return SUCCESS;
+    
+    *index = -1;
     return FAIL;
 }
 
-int recursive_binary_search(int array[], int low, int high, int key){
-    if(low > high)
-        return FAIL;
+int len(Array * array){
+    if(array == NULL || array->data == NULL) return INVALID_POINTER;
 
-    int mid = (high+low)/2;
-    if(key < array[mid])
-        return recursive_binary_search(array, low, mid-1, key);
-    else if(key > array[mid])
-        return recursive_binary_search(array, mid+1, high, key);
-    else
-        return mid;
+    return array->size;
+}
+
+int min(Array * array, int * value){
+    if(array == NULL || array->data == NULL) return INVALID_POINTER;
+
+    *value = array->data[0];
+    for(int i = 1; i < array->size; i++)
+        if(array->data[i] < *value)
+            *value = array->data[i];
+
+    return SUCCESS;
+}
+
+int max(Array * array, int * value){
+    if(array == NULL || array->data == NULL) return INVALID_POINTER;
+
+    *value = array->data[0];
+    for(int i = 1; i < array->size; i++)
+        if(array->data[i] > *value)
+            *value = array->data[i];
+
+    return SUCCESS;
 }
 
 //View operations
-void print(int array[], int size){
-    for(int i = 0; i < size - 1; i++)
-        printf("[%d] ", array[i]);
-    printf("[%d]\n", array[size-1]);
+int print(Array * array){
+    if(array == NULL || array->data == NULL) return INVALID_POINTER;
 
-    return;
+    for(int i = 0; i < array->size - 1; i++)
+        printf("[%d] ", array->data[i]);
+    printf("[%d]\n", array->data[array->size-1]);
+
+    return SUCCESS;
 }
-
-
