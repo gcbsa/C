@@ -1,6 +1,2 @@
-Create a README.md file for the repository
-1. Test array code
-2. Improve string code
-3. Teste string code
-4. Include sort code
-5. Include hash code
+1. Include sort code
+2. Include hash code
