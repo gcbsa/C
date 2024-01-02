@@ -1,3 +1,2 @@
 To do
-1. Include sort code
-2. Include hash code
+1. Include hash code
