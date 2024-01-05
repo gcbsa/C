@@ -12,6 +12,7 @@ typedef struct queue Queue;
 
 //Base operations
 Queue * create();
+Queue * clone(Queue * original);
 int destroy(Queue ** queue);
 int empty(Queue * queue);
 

@@ -28,6 +28,16 @@ List * create(){
 	return new_list;
 }
 
+List * clone(List * original){
+	List * clone = NULL;
+	if(original != NULL)
+		if((clone = create()) != NULL)
+			for(List_node * current_node = original->head; current_node != NULL; current_node = current_node->next)
+				insert(clone, clone->size, current_node->element);
+	
+	return clone;
+}
+
 int destroy(List ** list){
 	if(*list == NULL) return INVALID_POINTER;
 

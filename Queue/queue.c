@@ -28,6 +28,16 @@ Queue * create(){
 	return new_queue;
 }
 
+Queue * clone(Queue * original){
+	Queue * clone = NULL;
+	if(original != NULL)
+		if((clone = create()) != NULL)
+			for(Queue_node * current_node = original->front; current_node != NULL; current_node = current_node->next)
+				queue(clone, current_node->element);
+
+	return clone;
+}
+	
 int destroy(Queue ** queue){
 	if(*queue == NULL) return INVALID_POINTER;
 

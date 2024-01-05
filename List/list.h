@@ -12,6 +12,7 @@ typedef struct list List;
 
 //Base operations
 List * create();
+List * clone(List * list);
 int destroy(List ** list);
 int empty(List * list);
 

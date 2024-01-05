@@ -28,6 +28,24 @@ Stack * create(){
 	return new_stack;
 }
 
+Stack * clone(Stack * original){
+	Stack * clone = NULL;
+	if(original != NULL){
+		if((clone = create()) != NULL){
+			Stack * intermediate = NULL;
+			if((intermediate = create()) != NULL){
+				for(Stack_node * current_node = original->top; current_node != NULL; current_node = current_node->next)
+					push(intermediate, current_node->element);
+				for(Stack_node * current_node = intermediate->top; current_node != NULL; current_node = current_node->next)
+					push(clone, current_node->element);
+				
+				destroy(&intermediate);
+			}
+		}
+	}
+	return clone;
+}
+
 int destroy(Stack ** stack){
 	if(*stack == NULL) return INVALID_POINTER;
 
@@ -98,8 +116,8 @@ int print(Stack * stack){
 	if(stack == NULL) return INVALID_POINTER;
 	
 	for(Stack_node * current_node = stack->top; current_node != NULL; current_node = current_node->next)
-		printf("[ %d ]\n\n", current_node->element);
-	printf("NULL\n");
+		printf("[ %d ]\n", current_node->element);
+	printf("NULL\n\n");
 
 	return SUCCESS;
 }

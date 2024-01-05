@@ -12,6 +12,7 @@ typedef struct stack Stack;
 
 //Base operations
 Stack * create();
+Stack * clone(Stack * original);
 int destroy(Stack ** Stack);
 int empty(Stack * Stack);
 
