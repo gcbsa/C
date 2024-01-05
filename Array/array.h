@@ -12,6 +12,7 @@ typedef struct array Array;
 
 //Base operatins
 Array * create(int space);
+Array * clone(Array * original);
 int destroy(Array ** array);
 int resize(Array * array, int new_space);
 

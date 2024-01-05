@@ -22,6 +22,16 @@ Array * create(int space){
 	return new_array;
 }
 
+Array * clone(Array * original){
+    Array * clone = NULL;
+    if(original != NULL)
+        if((clone = create(original->size)) != NULL)
+            for(int i = 0; i < clone->size; i++)
+                assign(clone, i, original->data[i]);
+
+    return clone;
+}
+
 int destroy(Array ** array){
 	if(*array == NULL) return INVALID_POINTER;
 
