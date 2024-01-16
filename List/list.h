@@ -23,8 +23,8 @@ int exclude(List * list, int position);
 int reverse(List * list);
 
 //Fetch operations
-int retrieve(List * list, int position, int * element);
-int search(List * list, int * position, int element);
+int elementof(List * list, int position, int * element);
+int positionof(List * list, int * position, int element);
 int len(List * list);
 int min(List * list, int * element);
 int max(List * list, int * element);

@@ -13,9 +13,8 @@ typedef struct array Array;
 //Base operatins
 Array * create(int space);
 Array * clone(Array * original);
-int resize(Array * array, int new_space);
 int destroy(Array ** array);
-
+int resize(Array * array, int new_space);
 
 //Handle operations
 int assign(Array * array, int index, int value);

@@ -121,8 +121,8 @@ int reverse(List * list){
 
 	for(int i = 0; (list->size/2)-i; i++){
 		int temp[2];
-		retrieve(list, i, &temp[0]);
-		retrieve(list, list->size-1-i, &temp[1]);
+		elementof(list, i, &temp[0]);
+		elementof(list, list->size-1-i, &temp[1]);
 		alter(list, i, temp[1]);
 		alter(list, list->size-1-i, temp[0]);
 	}
@@ -131,7 +131,7 @@ int reverse(List * list){
 }
 
 //Fetch operations
-int retrieve(List * list, int position, int * element){
+int elementof(List * list, int position, int * element){
 	if(list == NULL) return INVALID_POINTER;
 
 	if(position < 0 || position >= list->size) return FAIL;
@@ -145,7 +145,7 @@ int retrieve(List * list, int position, int * element){
 	return SUCCESS;
 }
 
-int search(List * list, int * position, int element){
+int positionof(List * list, int * position, int element){
 	if(list == NULL) return INVALID_POINTER;
 
 	*position = 1;
