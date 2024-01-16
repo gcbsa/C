@@ -110,7 +110,7 @@ int reverse(Array * array){
 }
 
 //Fetch operations
-int retrieve(Array * array, int index, int * value){
+int valueof(Array * array, int index, int * value){
     if(array == NULL || array->data == NULL) return INVALID_POINTER;
 
     if(index < 0 || index >= array->size) return FAIL;
@@ -120,7 +120,7 @@ int retrieve(Array * array, int index, int * value){
     return SUCCESS;
 }
 
-int search(Array * array, int * index, int value){
+int indexof(Array * array, int * index, int value){
     if(array == NULL || array->data == NULL) return INVALID_POINTER;
 
     for(*index = 0; *index < array->size; (*index)++)

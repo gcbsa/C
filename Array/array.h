@@ -13,8 +13,9 @@ typedef struct array Array;
 //Base operatins
 Array * create(int space);
 Array * clone(Array * original);
-int destroy(Array ** array);
 int resize(Array * array, int new_space);
+int destroy(Array ** array);
+
 
 //Handle operations
 int assign(Array * array, int index, int value);
@@ -24,8 +25,8 @@ int shuffle(Array * array);
 int reverse(Array * array);
 
 //Fetch operations
-int retrieve(Array * array, int index, int * value);
-int search(Array * array, int * index, int value);
+int valueof(Array * array, int index, int * value);
+int indexof(Array * array, int * index, int value);
 int len(Array * array);
 int min(Array * array, int * value);
 int max(Array * array, int * value);
